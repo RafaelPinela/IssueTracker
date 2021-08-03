@@ -39,7 +39,6 @@ void MainWindow::on_pushButton_login_clicked()
     if(db.open())
     {
         QMessageBox::information(this, "Connection", "Database connected successfully");
-        db.close();
     }
     else
     {
@@ -48,20 +47,3 @@ void MainWindow::on_pushButton_login_clicked()
 
 }
 
-
-
-
-/*
-   QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
-
-   //set hostname
-   db.setHostName("");
-
-   //set db name
-   db.setDatabaseName("");
-
-   //set username and password
-   db.setUserName("");
-   db.setPassword("");
-
-   */

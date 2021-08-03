@@ -17,8 +17,8 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>70</y>
+      <x>30</x>
+      <y>20</y>
       <width>201</width>
       <height>271</height>
      </rect>
@@ -67,13 +67,20 @@
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
        <widget class="QLabel" name="label_3">
+        <property name="tabletTracking">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>IP</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_ip"/>
+       <widget class="QLineEdit" name="lineEdit_ip">
+        <property name="tabletTracking">
+         <bool>false</bool>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -99,7 +106,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -140,9 +147,60 @@
      </layout>
     </widget>
    </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>60</y>
+      <width>321</width>
+      <height>291</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>GroupBox</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>40</y>
+       <width>101</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Permission levels</string>
+     </property>
+    </widget>
+    <widget class="QListView" name="listView">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>70</y>
+       <width>256</width>
+       <height>192</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>lineEdit_user</tabstop>
+  <tabstop>lineEdit_password</tabstop>
+  <tabstop>lineEdit_ip</tabstop>
+  <tabstop>lineEdit_database</tabstop>
+  <tabstop>pushButton_login</tabstop>
+  <tabstop>pushButton_2</tabstop>
+  <tabstop>listView</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
