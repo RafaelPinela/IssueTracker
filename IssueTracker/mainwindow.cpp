@@ -11,7 +11,14 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+
     delete ui;
+
+    if(data_b.open())
+    {
+        this->data_b.close();
+        cout<<"ZU"<<endl;
+    }
 }
 
 
@@ -23,20 +30,34 @@ void MainWindow::on_pushButton_login_clicked()
     QString ipadresse = ui->lineEdit_ip->text() ;
     QString databasename = ui->lineEdit_database->text() ;
 
-    QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
-
     //set hostname
-    db.setHostName(ipadresse);
+    data_b.setHostName(ipadresse);
 
     //set db name
-    db.setDatabaseName(databasename);
+    data_b.setDatabaseName(databasename);
 
     //set username and password
-    db.setUserName(username);
-    db.setPassword(password);
-    db.setPort(3306);
+    data_b.setUserName(username);
+    data_b.setPassword(password);
+    data_b.setPort(3306);
 
-    if(db.open())
+    if(data_b.open())
+    {
+        QMessageBox::information(this, "Connection", "Database connected successfully");
+        ui->groupBox_2->setEnabled(true);
+        ui->groupBox->setEnabled(false);
+    }
+    else
+    {
+        QMessageBox::information(this, "Not connected", "Database is not connected");
+    }
+
+}
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    if(data_b.open())
     {
         QMessageBox::information(this, "Connection", "Database connected successfully");
     }
@@ -44,6 +65,5 @@ void MainWindow::on_pushButton_login_clicked()
     {
         QMessageBox::information(this, "Not connected", "Database is not connected");
     }
-
 }
 
